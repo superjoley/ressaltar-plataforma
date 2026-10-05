@@ -1,8 +1,15 @@
+'use client';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export default function Hero() {
   return (
-    <section className="relative pt-40 pb-32 px-6 overflow-hidden">
+    <motion.section 
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="relative pt-40 pb-32 px-6 overflow-hidden">
       <div className="max-w-5xl mx-auto flex flex-col items-center text-center">
         {/* Badge & Eyebrow */}
         <div className="flex flex-col items-center gap-4 mb-8">
@@ -139,6 +146,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

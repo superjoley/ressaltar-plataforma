@@ -1,9 +1,16 @@
+'use client';
 import React from 'react';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 export default function FinalCTA() {
   return (
-    <section className="relative py-32 lg:py-40 bg-bg-primary px-6 overflow-hidden flex flex-col items-center justify-center">
+    <motion.section 
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="relative py-32 lg:py-40 bg-bg-primary px-6 overflow-hidden flex flex-col items-center justify-center">
       {/* Subtle background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[#983BFA]/10 rounded-full blur-[120px] pointer-events-none" />
 
@@ -30,6 +37,6 @@ export default function FinalCTA() {
           <span className="text-sm text-text-muted">Em desenvolvimento.</span>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

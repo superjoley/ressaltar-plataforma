@@ -1,8 +1,15 @@
+'use client';
 import React from 'react'
+import { motion } from 'framer-motion';
 
 export default function ProblemSection() {
   return (
-    <section className="w-full bg-bg-primary py-24 lg:py-32">
+    <motion.section 
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="w-full bg-bg-primary py-24 lg:py-32">
       <div className="mx-auto max-w-3xl px-6 flex flex-col items-center text-center">
         
         <div className="mb-16">
@@ -34,6 +41,6 @@ export default function ProblemSection() {
         </div>
 
       </div>
-    </section>
+    </motion.section>
   )
 }

@@ -1,4 +1,6 @@
+'use client';
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const phases = [
   { id: 1, name: 'Fundação', status: 'Em desenvolvimento' },
@@ -13,17 +15,26 @@ const phases = [
 
 export default function RoadmapSection() {
   return (
-    <section id="roadmap" className="py-24 lg:py-32 bg-bg-secondary px-6">
+    <motion.section 
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      id="roadmap" className="py-24 lg:py-32 bg-bg-secondary px-6">
       <div className="max-w-3xl mx-auto flex flex-col items-center">
         <h2 className="text-3xl lg:text-5xl font-medium text-text-primary tracking-tight mb-16 text-center">
           Estamos construindo isso por etapas.
         </h2>
 
         <div className="w-full flex flex-col gap-4">
-          {phases.map((phase) => {
+          {phases.map((phase, index) => {
             const isDev = phase.status === 'Em desenvolvimento';
             return (
-              <div 
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 key={phase.id} 
                 className="flex items-center justify-between p-6 rounded-2xl bg-surface border border-border transition-colors hover:bg-surface-elevated"
               >
@@ -45,11 +56,11 @@ export default function RoadmapSection() {
                     </div>
                   )}
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

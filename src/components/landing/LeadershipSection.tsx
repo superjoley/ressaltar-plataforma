@@ -1,4 +1,6 @@
+'use client';
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const questions = [
   'Quantas demandas estão abertas?',
@@ -21,7 +23,12 @@ const kpis = [
 
 export default function LeadershipSection() {
   return (
-    <section className="bg-bg-primary py-24 lg:py-32">
+    <motion.section 
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="bg-bg-primary py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           
@@ -95,6 +102,6 @@ export default function LeadershipSection() {
 
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

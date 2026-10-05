@@ -1,9 +1,16 @@
+'use client';
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Activity, AlertTriangle, CheckCircle2, Clock, Calendar, AlertCircle } from 'lucide-react';
 
 export default function HealthScoreSection() {
   return (
-    <section id="inteligencia" className="py-24 lg:py-32 bg-bg-secondary border-b border-border">
+    <motion.section 
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      id="inteligencia" className="py-24 lg:py-32 bg-bg-secondary border-b border-border">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           
@@ -225,6 +232,6 @@ export default function HealthScoreSection() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

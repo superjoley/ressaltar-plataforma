@@ -1,8 +1,15 @@
+'use client';
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export default function PlatformSection() {
   return (
-    <section className="bg-bg-primary py-24 lg:py-32 px-6">
+    <motion.section 
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="bg-bg-primary py-24 lg:py-32 px-6">
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
         
         {/* Text Content */}
@@ -54,6 +61,6 @@ export default function PlatformSection() {
         </div>
         
       </div>
-    </section>
+    </motion.section>
   );
 }

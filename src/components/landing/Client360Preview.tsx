@@ -1,8 +1,15 @@
+'use client';
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export default function Client360Preview() {
   return (
-    <section id="clientes" className="py-24 lg:py-32 bg-bg-primary px-6">
+    <motion.section 
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      id="clientes" className="py-24 lg:py-32 bg-bg-primary px-6">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
         
         {/* Left / Text */}
@@ -138,6 +145,6 @@ export default function Client360Preview() {
            </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

@@ -1,8 +1,15 @@
+'use client';
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export default function ManifestoSection() {
   return (
-    <section className="bg-bg-primary py-32 lg:py-40 px-6 relative">
+    <motion.section 
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="bg-bg-primary py-32 lg:py-40 px-6 relative">
       {/* Subtle top border gradient */}
       <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-3/4 max-w-3xl h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
       
@@ -35,6 +42,6 @@ export default function ManifestoSection() {
         </div>
 
       </div>
-    </section>
+    </motion.section>
   );
 }

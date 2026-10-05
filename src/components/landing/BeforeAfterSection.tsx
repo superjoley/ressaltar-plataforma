@@ -1,4 +1,6 @@
+'use client';
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export default function BeforeAfterSection() {
   const beforeItems = [
@@ -21,7 +23,12 @@ export default function BeforeAfterSection() {
   ];
 
   return (
-    <section className="bg-bg-secondary py-24 lg:py-32 px-6">
+    <motion.section 
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="bg-bg-secondary py-24 lg:py-32 px-6">
       <div className="max-w-6xl mx-auto flex flex-col">
         <div className="flex flex-col lg:flex-row relative">
           
@@ -80,6 +87,6 @@ export default function BeforeAfterSection() {
           </p>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

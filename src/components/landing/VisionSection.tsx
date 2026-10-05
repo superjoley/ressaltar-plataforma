@@ -1,4 +1,6 @@
+'use client';
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export default function VisionSection() {
   const items = [
@@ -13,7 +15,12 @@ export default function VisionSection() {
   ];
 
   return (
-    <section id="visao" className="bg-bg-secondary py-24 lg:py-32 px-6">
+    <motion.section 
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      id="visao" className="bg-bg-secondary py-24 lg:py-32 px-6">
       <div className="max-w-6xl mx-auto flex flex-col items-center">
         <div className="text-center max-w-3xl mb-16">
           <h2 className="text-3xl lg:text-5xl font-semibold text-text-primary mb-6 tracking-tight">
@@ -25,10 +32,17 @@ export default function VisionSection() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-left max-w-2xl mx-auto mb-10">
             {items.map((item, i) => (
-              <div key={i} className="flex items-start gap-3">
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                key={i} 
+                className="flex items-start gap-3"
+              >
                 <span className="w-1.5 h-1.5 rounded-full bg-[#983BFA] mt-2.5 shrink-0 opacity-80" />
                 <span className="text-text-secondary">{item}</span>
-              </div>
+              </motion.div>
             ))}
           </div>
           
@@ -106,6 +120,6 @@ export default function VisionSection() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
